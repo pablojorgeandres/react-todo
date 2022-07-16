@@ -1,8 +1,9 @@
 import React from "react";
+import '../Styles/TodoCounter.css';
 
 function TodoCounter () {
     return (
-        <h2>Completaste 2 tareas!</h2>
+        <h2 className="TodoCounter">Completaste 2 tareas!</h2>
     );
 }
 
