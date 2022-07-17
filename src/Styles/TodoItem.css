@@ -44,7 +44,21 @@
 
 .Icon-delete {
     position: absolute;
-    top: -24px;
+    /* top: -24px; */
     right: 10px;
     font-weight: bold;
+}
+
+.Icon-delete:hover {
+    color: red;
+}
+.fa-close {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
 }
