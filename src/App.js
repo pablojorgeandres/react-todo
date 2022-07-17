@@ -7,7 +7,7 @@ import { CreateTodoButton } from './Components/CreateTodoButton';
 
 let defaultTodos = [
   {text: 'Todo1', completed: true},
-  {text: 'Todo2', completed: true},
+  {text: 'Todo2', completed: false},
   {text: 'Todo3', completed: false}
 ];
 
@@ -30,6 +30,20 @@ function App() {
     })
   }
 
+  const completeTodo = (text) => {
+    const todoIndex = todos.findIndex( todo => todo.text === text);
+    const newTodos = [...todos];
+    todos[todoIndex].completed = true;
+    setTodos(newTodos);
+  }
+
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex( todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  }
+
   return (
     <React.Fragment>
       <TodoCounter 
@@ -46,6 +60,8 @@ function App() {
             key={todo.text} 
             text={todo.text}
             completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
           />
         ))}
       </TodoList>
