@@ -18,16 +18,18 @@ function AppUI() {
   return (
     <React.Fragment>
       
-      <TodoCounter />
-      
+      <h1>Welcome to your ToDo app!</h1>
+
       <TodoSearch />
       
+      <TodoCounter />
+      
       <TodoList>
-        {error && <p>Hubo un error ...</p>}
+        {error && <p>There was an error ...</p>}
         {loading && (
           <FontAwesomeIcon className='spinner' icon={faSpinner} spin />
         )}
-        {(!loading && !searchedTodos.length) && <p>Crea tu primer task ...</p>}
+        {(!loading && !searchedTodos.length) && <p class="noTasksTxt" >You don't have tasks, you can create your first one ...</p>}
         {searchedTodos.map(todo => (
           <TodoItem 
             key={todo.text} 
